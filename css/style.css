@@ -1,0 +1,84 @@
+/*In case we eventually have problems in the styling, change ".box" selectors to "#gameArea > div"*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-family: uroob;
+	font-size: 20px;
+}
+body {
+	background-image: url("../images/BG for Tic Tac Toe.png");
+}
+/*the grid*/
+#gameArea {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1.3fr 1fr 1.3fr;
+	grid-row-gap: 0;
+	grid-column-gap: 0;
+	/*setting the size of this bitch*/
+	inline-size: 200px;
+	block-size: 200px;
+	/*positioning the bitch*/
+	position: absolute;
+	top: calc(50%  + 2.7px);
+	transform: translateY(-50%);
+	left: calc(50vw - 420px); /*making the distance btw its right edge and the middle of the page, 220px*/
+}
+.box {
+	border-inline-end: 2px solid #252525;
+	border-block-end: 2px solid #252525;
+	/*transition is for later when it gets highlighted due to win*/
+	transition-property: color;
+	transition-duration: 1.3s;
+	transition-timing-function: ease-in-out;
+}
+.box:nth-child(3n) {
+	border-inline-end: none;
+}
+.box:nth-child(n + 7) {
+	border-block-end: none;
+}
+
+/*The score board*/
+#scoreBoard {
+	border-collapse: collapse;
+	/*sizing*/
+	inline-size: 90px;
+	/*positioning the bitch*/
+	position: absolute;
+	top: calc(50vh - 95px); /*making the top pos fixed so as to align with the other bitch*/
+	left: calc(50vw + 220px); /*making the distance btw its right edge and the middle of the page, 220px*/
+}
+#scoreBoard tr {
+	block-size: 30px;
+}
+#scoreBoard caption {
+	border-block-end: 1px solid black;
+	margin-inline: auto;
+}
+#scoreBoard td {
+	inline-size: 50%;
+	text-align: center;
+	padding: 5px;
+	border-inline-start: 2px solid #252525;
+	font-size: 30px;
+	color: #252525;
+}
+/*removing that first border*/
+#scoreBoard td:first-child {
+	border-inline-start: none;
+}
+
+/*styling for them X or O's thats gon be added*/
+.XorO {
+	font-family: ani;
+	font-size: 50px;
+}
+/*styling for my highlighted nodes*/
+.highlighted {
+	color: white;
+}
